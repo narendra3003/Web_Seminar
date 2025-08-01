@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Interactive Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .scroll-text {
+      height: 30px; /* smaller height makes overflow more likely */
+      overflow: hidden;
+      border: 1px solid #aaa;
+      margin-top: 10px;
+      padding: 5px;
+    }
+
+    #blinker {
+      font-weight: bold;
+      color: red;
+    }
+
+    #hiddenSection {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+    }
+
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-heading">Main Heading</h1>
+
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About</a> |
+    <a href="#">Contact</a>
+  </nav>
+
+  <hr>
+
+  <!-- Toggle Dark Mode -->
+  <button id="toggleDark">Toggle Dark Mode</button>
+
+  <!-- Hidden Info Section -->
+  <button id="showBtn">Show/Hide Info</button>
+  <div id="hiddenSection">
+    <p>This is some hidden information that can be toggled.</p>
+  </div>
+
+  <!-- Greeting Form -->
+  <form id="greetForm">
+    <input type="text" id="username" placeholder="Enter your name">
+    <button type="submit">Greet Me</button>
+  </form>
+  <p id="greeting"></p>
+
+  <!-- Blinking Text -->
+  <p id="blinker">Attention! Important Announcement!</p>
+
+  <!-- Auto-scrolling Text -->
+  <div class="scroll-text">
+    Welcome to our interactive college website. Check out events, activities, and more. Stay updated with the latest news and announcements from our team!<br>
+    Event 1: Science Fair on Monday!<br>
+    Event 2: Guest Lecture on Wednesday!<br>
+    Event 3: Sports Day on Friday!<br>
+    Don't miss out on any updates. Stay tuned for more!
+  </div>
+
+  <!-- Button Alert -->
+  <input type="text" id="clicker" placeholder="Your name">
+  <button id="clickMeBtn">Click Me!</button>
+
+  <!-- Form Submit Simulation -->
+  <input type="text" id="nameInput" placeholder="Type something..." />
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    // Accessing Elements
+    const heading = document.getElementById("main-heading");
+    const links = document.querySelectorAll("a");
+
+    // Changing Content
+    heading.innerText = "Welcome to Our College Site";
+
+    // Changing Styles
+    heading.style.color = "purple";
+    heading.style.fontSize = "2rem";
+
+    // Click Event
+    const button = document.getElementById("submitBtn");
+    button.addEventListener("click", function () {
+      alert("Form Submitted!");
+    });
+
+    // Input Event
+    const input = document.getElementById("nameInput");
+    input.addEventListener("input", function (e) {
+      console.log("You typed: ", e.target.value);
+    });
+
+    // Task 1: Toggle dark mode
+    const toggleBtn = document.getElementById("toggleDark");
+    toggleBtn.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    // Task 2: Show/Hide Info
+    const showBtn = document.getElementById("showBtn");
+    const hiddenSection = document.getElementById("hiddenSection");
+    showBtn.addEventListener("click", function () {
+      if (hiddenSection.style.display === "none") {
+        hiddenSection.style.display = "block";
+      } else {
+        hiddenSection.style.display = "none";
+      }
+    });
+
+    // Task 3: Greeting Form
+    const greetForm = document.getElementById("greetForm");
+    const usernameInput = document.getElementById("username");
+    const greeting = document.getElementById("greeting");
+    greetForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      greeting.textContent = `Hello, ${usernameInput.value}!`;
+    });
+
+    // Task 4: Blinking Text
+    const blinker = document.getElementById("blinker");
+    setInterval(() => {
+      blinker.style.visibility = blinker.style.visibility === "hidden" ? "visible" : "hidden";
+    }, 500);
+
+    // Task 5: Auto-scrolling Text
+    const scrollText = document.querySelector(".scroll-text");
+    setInterval(() => {
+      scrollText.scrollTop += 1;
+      if (scrollText.scrollTop >= scrollText.scrollHeight - scrollText.clientHeight) {
+        scrollText.scrollTop = 0;
+      }
+    }, 50);
+
+    // Click alert with input name
+    const clickMeBtn = document.getElementById("clickMeBtn");
+    const clickedBy = document.getElementById("clicker");
+    clickMeBtn.addEventListener("click", function () {
+      const name = clickedBy.value.trim();
+      if (name) {
+        alert(`${name} clicked the button!`);
+      } else {
+        alert("Button was clicked!");
+      }
+    });
+  </script>
+</body>
+</html>

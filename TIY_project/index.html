@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DBIT Tech Club promotes innovation, coding culture, and collaboration through events, workshops, and tech talks.">
+  <meta name="keywords" content="DBIT, Don Bosco Institute of Technology, Tech Club, Hackathons, Web Development, Coding, Events">
+  <meta name="author" content="CSI Workshop DBIT">
+  <link rel="stylesheet" href="styles.css">
+  <title>DBIT Tech Club</title>
+</head>
+
+<body>
+  <header>
+    <h1>CSI Workshop DBIT</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" aria-label="Hero">
+      <h2>Empowering Coders of Tomorrow</h2>
+      <p>We build community, run events, and shape future tech leaders at Don Bosco Institute of Technology.</p>
+      <a href="#events"><button>Explore Events</button></a>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+      <h2>About Us</h2>
+      <article>
+        <p>The DBIT Tech Club is a student-led initiative to foster a love for technology, coding, and innovation through interactive sessions and exciting events.</p>
+        <ul>
+          <li>Weekly coding meetups</li>
+          <li>Tech Talks & Guest Speakers</li>
+          <li>Workshops on Web, AI, Cloud, and more</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <article>
+        <h3>Hackathon 2025</h3>
+        <p>A 24-hour problem-solving marathon focused on real-world challenges.</p>
+      </article>
+      <article>
+        <h3>Web Dev Bootcamp</h3>
+        <p>A beginner-friendly workshop series covering HTML, CSS, JavaScript, and modern frameworks.</p>
+      </article>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h2>What Members Say</h2>
+      <figure>
+        <blockquote>
+          "Joining the Tech Club gave me the confidence to build my first app and participate in a national hackathon!"
+        </blockquote>
+        <figcaption>— Riya Mehta, Computer Science Student</figcaption>
+      </figure>
+      <figure>
+        <blockquote>
+          "Great mentors, fun events, and a supportive learning environment!"
+        </blockquote>
+        <figcaption>— Ankit Verma, Electronics Dept.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <h3>Subscribe to Newsletter</h3>
+      <form id="newsletter-form">
+        <input type="email" name="newsletter-email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <h3>Follow Us</h3>
+      <ul class="social-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+
+      <h3>Visit Us</h3>
+      <address>
+        Don Bosco Institute of Technology - Tech Club<br>
+        Block A, Room 102<br>
+        Premier Automobiles Road, Kurla (W)<br>
+        Mumbai, Maharashtra, India
+      </address>
+
+      <div id="map" style="width: 100%; height: 200px; background-color: #ddd;">
+        <!-- Embed Google Maps here later -->
+        <p style="text-align:center; line-height: 200px;">Map Placeholder</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Don Bosco Institute of Technology - Tech Club. All rights reserved.</p>
+    <p>Designed by the DBIT Web Team.</p>
+  </footer>
+
+  <!-- JS to handle form actions -->
+  <script>
+    // Contact form popup alert
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent actual submission
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      alert("Thank you, " + name + "! Your message has been received.\nWe'll get back to you at: " + email);
+
+      // Optionally clear form
+      this.reset();
+
+      // Optionally log to console
+      console.log("Contact Form Submitted:", { name, email, message });
+    });
+
+    // Newsletter form popup alert
+    document.getElementById("newsletter-form").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent actual submission
+
+      const email = this.querySelector('input[name="newsletter-email"]').value.trim();
+      alert("You've subscribed successfully!\nWe'll keep you updated at: " + email);
+
+      this.reset(); // Clear form
+      console.log("Newsletter Subscription:", email);
+    });
+  </script>
+</body>
+</html>
