@@ -44,10 +44,5 @@ This repository contains all the materials, code samples, and practice exercises
 - **Topic:** Practical Web Development (HTML, CSS, JS)
 - **Audience:** Beginners and intermediate learners
 
-## Suggestions or Questions?
-
-- If you have suggestions for improvements, want to add your own practice files, or have questions about any code, please open an issue or contact the seminar organizer.
-- If you want more advanced examples or deeper explanations, let us know!
-
 ---
 Happy coding and learning!
